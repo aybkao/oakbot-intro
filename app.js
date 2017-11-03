@@ -179,13 +179,15 @@ function processMessageFromPage(event) {
         sendHelpOptionsAsQuickReplies(senderID);
         break;
       
+      case 'hi':
+        sendTextMessage(senderID, 'hey');
+
       default:
         // otherwise, just echo it back to the sender
         sendTextMessage(senderID, messageText);
     }
   }
 }
-
 
 /*
  * Send a message with the four Quick Reply buttons 
@@ -639,7 +641,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: messageText // utf-8, 640-character max
+      text: 'what about ' + messageText + ' ?' // utf-8, 640-character max
     }
   };
   console.log("[sendTextMessage] %s", JSON.stringify(messageData));
